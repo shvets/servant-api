@@ -1,0 +1,130 @@
+<assembly>
+  <id>src</id>
+  <formats>
+    <format>zip</format>
+  </formats>
+
+  <fileSets>
+    <fileSet>
+      <includes>
+        <include>*.xml</include>
+
+        <include>*.ipr</include>
+        <include>*.iws</include>
+        <include>*.iml</include>
+
+        <include>src/**</include>
+        <include>docs/**</include>
+      </includes>
+    </fileSet>
+
+    <fileSet>
+      <directory>servant-api</directory>
+      <outputDirectory>servant-api</outputDirectory>
+    
+      <includes>
+        <include>docs/**</include>
+        <include>src/**</include>
+
+        <include>*.bat</include>
+        <include>*.xml</include>
+        <include>*.iml</include>
+      </includes>
+    </fileSet>
+
+    <fileSet>
+      <directory>apps/bigdigger</directory>
+      <outputDirectory>apps/bigdigger</outputDirectory>
+    
+      <includes>
+        <include>docs/**</include>
+        <include>src/**</include>
+
+        <include>*.bat</include>
+        <include>*.properties</include>
+        <include>*.xml</include>
+        <include>*.iml</include>
+      </includes>
+    </fileSet>
+
+    <fileSet>
+      <directory>apps/cerberus</directory>
+      <outputDirectory>apps/cerberus</outputDirectory>
+    
+      <includes>
+        <include>docs/**</include>
+        <include>src/**</include>
+
+        <include>*.bat</include>
+        <include>*.properties</include>
+        <include>*.xml</include>
+        <include>*.iml</include>
+      </includes>
+    </fileSet>
+
+    <fileSet>
+      <directory>apps/cerberus</directory>
+      <outputDirectory>apps/cerberus</outputDirectory>
+    
+      <includes>
+        <include>docs/**</include>
+        <include>src/**</include>
+
+        <include>*.bat</include>
+        <include>*.properties</include>
+        <include>*.xml</include>
+        <include>*.iml</include>
+      </includes>
+    </fileSet>
+
+    <fileSet>
+      <directory>apps/chat</directory>
+      <outputDirectory>apps/chat</outputDirectory>
+    
+      <includes>
+        <include>old/**</include>
+        <include>docs/**</include>
+        <include>src/**</include>
+
+        <include>*.bat</include>
+        <include>*.properties</include>
+        <include>*.xml</include>
+        <include>*.iml</include>
+      </includes>
+    </fileSet>
+
+    <fileSet>
+      <directory>apps/scriptrunner</directory>
+      <outputDirectory>apps/scriptrunner</outputDirectory>
+    
+      <includes>
+        <include>conf/**</include>
+        <include>scripts/**</include>
+        <include>docs/**</include>
+        <include>src/**</include>
+
+        <include>*.bat</include>
+        <include>*.properties</include>
+        <include>*.xml</include>
+        <include>*.iml</include>
+      </includes>
+    </fileSet>
+
+    <fileSet>
+      <directory>apps/webserver</directory>
+      <outputDirectory>apps/webserver</outputDirectory>
+    
+      <includes>
+        <include>docs/**</include>
+        <include>src/**</include>
+
+        <include>*.bat</include>
+        <include>*.properties</include>
+        <include>*.xml</include>
+        <include>*.iml</include>
+      </includes>
+    </fileSet>
+
+  </fileSets>
+
+</assembly>

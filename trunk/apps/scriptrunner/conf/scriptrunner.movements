@@ -1,0 +1,8 @@
+# from 		to 		back
+personal 	development 	personal
+development 	inr 		personal
+inr 		system 		personal
+system 		production 	personal
+personal	projectdev	personal
+projectdev	projectsys	personal
+

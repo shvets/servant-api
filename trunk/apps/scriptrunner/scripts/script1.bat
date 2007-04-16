@@ -1,0 +1,3 @@
+dir
+cd ..
+dir
