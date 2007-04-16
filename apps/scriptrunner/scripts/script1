@@ -1,0 +1,6 @@
+#!/usr/local/bin/bash
+ls
+cd ..
+ls
+echo aaa bbb ccc ddd eee
+

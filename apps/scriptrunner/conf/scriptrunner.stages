@@ -1,0 +1,14 @@
+# from 		dir
+personal	/u03/export/home
+
+development	/u02/dev
+
+inr 		/u02/inr	
+
+system		/u02/sys
+
+production	/u02/prod
+
+projectdev	/u02/dev/projects
+
+projectsys	/u02/sys/projects

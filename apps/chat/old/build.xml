@@ -1,0 +1,119 @@
+<project name="Chat" default="usage" basedir=".">
+
+  <property file="common.properties"/>
+  <property file="build.properties"/>
+
+  <target name="info" >
+
+    <echo message="    Opreating System : ${os.name}" />
+    <echo message="    Java Version     : ${ant.java.version}" />
+    <echo message="    Compiler         : ${build.compiler}" />
+
+    <tstamp />
+  </target>
+
+  <target name="usage">
+    <echo>
+      The following targets are supported by this build scpript:
+
+      clean     - remove all bytecode files from "${classes.dir}" directory;
+      compile   - compile all project files.
+    </echo>
+  </target>
+
+  <target name="init" depends="info">
+    <tstamp/>
+    <property name="Name" value="Chat"/>
+    <property name="version" value="1.0"/>
+    <property name="year" value="2001"/>
+
+    <echo message="----------- ${ant.project.name} ${version} [${year}] ------------"/>
+
+    <property name="debug" value="on"/>
+    <property name="optimize" value="on"/>
+    <property name="deprecation" value="on"/>
+
+    <filter token="year" value="${year}"/>
+    <filter token="version" value="${version}"/>
+    <filter token="date" value="${TODAY}"/>
+    <filter token="log" value="true"/>
+    <filter token="verbose" value="true"/>
+
+    <echo message="    Creating ${classes.dir} directory..." />
+    <mkdir dir="${classes.dir}"/>
+  </target>
+
+  <target name="clean">
+    <delete dir="${classes.dir}"/>
+    <delete file="ChatServer.log"/>
+    <delete>
+      <fileset dir=".">
+        <include name="*.zip"/>
+      </fileset>
+    </delete>
+  </target>
+
+  <target name="clean.lib">
+    <delete dir="${lib.dir}"/>
+  </target>
+
+  <target name="clean.all" depends="clean, clean.lib"/>
+
+  <target name="libs.get">
+    <ant dir="../NetLib" target="jar"/>
+
+    <copy todir="${lib.dir}" >
+      <fileset dir="../NetLib/${lib.dir}" includes="*.jar"/>
+    </copy>
+  </target>
+
+  <path id="classpath">
+    <pathelement location="${classes.dir}" />
+    <pathelement location="${lib.dir}/netlib.jar" />
+  </path>
+
+  <target name="compile" depends="init" >
+    <javac destdir="${classes.dir}"
+           debug="${debug}"
+           optimize="${optimize}" >
+
+        <classpath refid="classpath" />
+        <src path="${src.dir}" />
+
+	<include name ="org/javalobby/netapps/chat/primitive/*.java"/>
+	<include name ="org/javalobby/netapps/chat/defaults/*.java"/>
+	<include name ="org/javalobby/netapps/chat/basic/*.java"/>
+	<include name ="org/javalobby/netapps/chat/event/*.java"/>
+	<include name ="org/javalobby/netapps/chat/*.java"/>
+    </javac>
+
+  </target>
+
+  <target name="server.start" depends="compile">
+    <java classname="org.javalobby.netapps.chat.ConsoleChatServer"
+          classpath="${classes.dir}" 
+          fork="yes" >
+    </java>
+  </target>
+
+  <target name="client.start" depends="compile">
+    <java classname="org.javalobby.netapps.chat.basic.DirectClient"
+          fork="yes" >
+        <classpath refid="classpath" />
+        <arg line="localhost 4646 1000 CSR alex aaa" /> 
+    </java>
+  </target>
+
+  <target name ="archive">
+    <zip zipfile="chat-src.zip">
+      <zipfileset dir="src" prefix="src">
+        <include name ="**"/>
+      </zipfileset>
+
+      <zipfileset dir="." includes="*.xml"/>
+      <zipfileset dir="." includes="*.properties"/>
+      <zipfileset dir="." includes="*.bat"/>
+    </zip>
+  </target>
+
+</project>
